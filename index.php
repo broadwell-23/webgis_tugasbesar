@@ -10,8 +10,8 @@ $db = new db();
 <title><?php include "_title.php"; ?></title>
 <link rel="Favicon Icon" href="img/logountan.png">
 <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" type="text/css" href="plugins/lightbox/lightbox.css" />	
-<link rel="stylesheet" type="text/css" href="plugins/sitemapstyler/sitemapstyler.css" />	
+<link rel="stylesheet" type="text/css" href="plugins/lightbox/lightbox.css" />
+<link rel="stylesheet" type="text/css" href="plugins/sitemapstyler/sitemapstyler.css" />
 
 </head>
 <body>
@@ -22,8 +22,8 @@ $db = new db();
 </div>
 
 <img src="img/logountan.png">
-<h1>Contoh Sistem Informasi Geografis Berbasis Web</h1>
-<h3>Template Tugas Besar SIG-LANJUTAN-2016</h3>
+<h1>Sistem Informasi Geografis</h1>
+<h3>Penyebaran <i>wifi.id</i> Kota Pontianak</h3>
 </div>
 </div>
 <?php
@@ -109,7 +109,7 @@ $(document).ready(function () {
 			filter_sambungan();
 		}
 	});
-	
+
 	$("#q_peta").keyup(function(event){
 		if(event.keyCode == 13){
 			var q = $('#q_peta').val();
@@ -125,8 +125,8 @@ $(document).ready(function () {
 			});
 		}
 	});
-	
-	
+
+
 	$('.close').click(function(){
 		$('.bg').fadeOut();
 		$('.modal').html();
@@ -137,12 +137,12 @@ $(document).ready(function () {
 	});
 	$('.modal a').click(function(){
 		// return true;
-	});	
+	});
 
-	
+
 	sitemapstyler('sitemap');
-	
-	
+
+
 });
 </script>
 <script type="text/javascript">
@@ -166,7 +166,7 @@ function filter_sambungan(){
 	if (kecamatan !='') link = link +'&kecamatan='+kecamatan;
 	if (q !='') link = link +'&q='+q;
 	window.location.href = link;
-	return false;	
+	return false;
 }
 
 function PetaSambungan(id){
