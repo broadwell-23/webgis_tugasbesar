@@ -1,0 +1,61 @@
+/*
+	Sitemap Styler 	 
+*/
+
+#sitemap, #sitemap ul, #sitemap li{
+	margin:0;
+	padding:0;
+	list-style:none;
+	line-height:20px;
+}
+#sitemap{background:url(line1.png) repeat-y;min-height:150px;}
+#sitemap li{
+	position:relative;
+	width:100%;
+	padding:5px;
+	padding-left:20px;
+}
+/* IE leaves a blank space where span is added so this is to avoid that */
+* html #sitemap li{
+	float:left;
+	display:inline;
+}
+
+#sitemap li input[type=checkbox], #sitemap li input[type=radio]{margin-left:5px;margin-top:3px;float:left;cursor:pointer;}
+#sitemap li img,#sitemap li div{margin-left:5px;float:left; max-height:24px;}
+#sitemap li label{margin-left:5px; display:inline-block;width:150px; cursor:pointer;}
+#sitemap li label.hd{margin-left:5px;color:red;width:150px;}
+#sitemap li span{float:left;position:absolute;top:5px;left:5px;width:13px;height:13px;cursor:auto;font-size:0;cursor:pointer;}
+#sitemap li span, #sitemap li span.collapsed{background:url(collapsed.png) no-repeat 0 0; margin-top:3px;} 
+#sitemap li span.expanded{background:url(expanded.png) no-repeat 0 0; margin-top:3px;}
+
+/* sub levels */
+
+#sitemap li ul{	
+	background:url(line1.png) repeat-y;
+}
+#sitemap li {	
+	background:url(line2.png) no-repeat 0 5px;
+	vertical-align:top;
+}
+#sitemap li li{	
+	background:url(line2.png) no-repeat 0 5px;
+}
+
+/* etc. */
+
+/* float fix */
+
+#sitemap:after, #sitemap ul:after{
+    content: "."; 
+    display: block; 
+    height: 0; 
+    clear: both; 
+    visibility: hidden;
+}
+#sitemap, #sitemap ul{display:block;}
+/*  \*/
+#sitemap, #sitemap ul{min-height:1%;}
+* html #sitemap, * html #sitemap ul{height:1%;}
+ /*  */
+#sitemap ul{display:none;}

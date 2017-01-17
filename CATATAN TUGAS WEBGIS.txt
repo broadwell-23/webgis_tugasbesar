@@ -1,0 +1,14 @@
+tugas besar sig-lanjutan
+1. bagi kelompok
+2. membangun webgis sesuai tema kelompok
+3. KML Kota PTK: 
+http://theproject.id/kml/pontianak/layer_kecamatan.kml
+http://theproject.id/kml/pontianak/layer_jalan.kml
+http://theproject.id/kml/pontianak/layer_sungai.kml
+4. cara digitasi lokasi: desk study --> mapsource, googleearth
+5. Foto lokasi
+
+
+http://theproject.id/kml/kuburaya/jalur-pipa.kml
+http://theproject.id/kml/kuburaya/ruas-jalan.kml
+http://theproject.id/kml/kuburaya/rumah-polyline.kml
