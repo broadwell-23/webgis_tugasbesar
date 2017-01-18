@@ -12,13 +12,15 @@ $db = new db();
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" type="text/css" href="plugins/lightbox/lightbox.css" />
 <link rel="stylesheet" type="text/css" href="plugins/sitemapstyler/sitemapstyler.css" />
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="js/bootstrap.min.js"></script>
 
 </head>
 <body>
 <div class="header-wrap">
 <div class="header">
 <div class="login">
-<?php date_default_timezone_set('Asia/Jakarta'); echo tanggalIndo(date('Y-m-d'),'l, j F Y');?> | <a href="admin/"><?php echo (ISSET($_SESSION['admin']['username'])) ? "HALAMAN ADMIN" : "LOGIN"; ?></a>
+<?php date_default_timezone_set('Asia/Jakarta'); echo tanggalIndo(date('Y-m-d'),'l, j F Y');?> | <a href="http://localhost:8000/admin" target="_blank"><?php echo (ISSET($_SESSION['admin']['username'])) ? "HALAMAN ADMIN" : "LOGIN"; ?></a>
 </div>
 
 <img src="img/logountan.png">
