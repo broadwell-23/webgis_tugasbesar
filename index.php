@@ -12,66 +12,91 @@ $db = new db();
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" type="text/css" href="plugins/lightbox/lightbox.css" />
 <link rel="stylesheet" type="text/css" href="plugins/sitemapstyler/sitemapstyler.css" />
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<script src="js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="slick/slick.css">
+<link rel="stylesheet" type="text/css" href="slick/slick-theme.css">
+<style type="text/css">
+	html, body {
+		margin: 0;
+		padding: 0;
+	}
+
+	* {
+		box-sizing: border-box;
+	}
+
+	.slider {
+			width: 90%;
+			margin: 10px auto;
+	}
+
+	.slick-slide {
+		margin: 0px 20px;
+	}
+
+	.slick-slide img {
+		width: 100%;
+	}
+
+	.slick-prev:before,
+	.slick-next:before {
+			color: black;
+	}
+</style>
 
 </head>
 <body>
 <div class="header-wrap">
-<div class="header">
-<div class="login">
-<?php date_default_timezone_set('Asia/Jakarta'); echo tanggalIndo(date('Y-m-d'),'l, j F Y');?> | <a href="http://localhost:8000/admin" target="_blank"><?php echo (ISSET($_SESSION['admin']['username'])) ? "HALAMAN ADMIN" : "LOGIN"; ?></a>
+	<div class="header">
+		<div class="login">
+			<?php date_default_timezone_set('Asia/Jakarta'); echo tanggalIndo(date('Y-m-d'),'l, j F Y');?> |
+			<a href="http://localhost:8000/admin"><?php echo (ISSET($_SESSION['admin']['username'])) ? "HALAMAN ADMIN" : "LOGIN"; ?></a>
+		</div>
+
+		<img src="img/logountan.png">
+		<h1>Sistem Informasi Geografis</h1>
+		<h3>Penyebaran <i>wifi.id</i> Kota Pontianak</h3>
+	</div>
 </div>
 
-<img src="img/logountan.png">
-<h1>Sistem Informasi Geografis</h1>
-<h3>Penyebaran <i>wifi.id</i> Kota Pontianak</h3>
-</div>
-</div>
 <?php
 $page = ISSET($_GET['page']) ? $_GET['page'] : "home";
 ?>
 <div class="nav-wrap">
-<div class="nav">
-	<ul>
-	<li><a href="index.php?page=home" class="<?php echo ($page=='home') ? "active" : ""; ?>">HOME</a></li>
-	<li><a href="index.php?page=sambungan" class="<?php echo ($page=='sambungan') ? "active" : ""; ?>">DATA SAMBUNGAN</a></li>
-	<li><a href="index.php?page=peta" class="<?php echo ($page=='peta') ? "active" : ""; ?>">PETA SAMBUNGAN</a></li>
-	</ul>
-
-</div>
+	<div class="nav">
+		<ul>
+			<li><a href="index.php?page=home" class="<?php echo ($page=='home') ? "active" : ""; ?>">Beranda</a></li>
+			<li><a href="index.php?page=sambungan" class="<?php echo ($page=='sambungan') ? "active" : ""; ?>">Lokasi <i>wifi.id</i></a></li>
+			<li><a href="index.php?page=peta" class="<?php echo ($page=='peta') ? "active" : ""; ?>">Peta <i>wifi.id</i></a></li>
+		</ul>
+	</div>
 </div>
 <div class="content-wrap">
-<div class="content">
-<?php include "_content.php" ?>
-</div>
+	<div class="content">
+		<?php include "_content.php" ?>
+	</div>
 
-<div class="footer clearfix">
+	<div class="footer clearfix">
 
-<div class="footer-left">
-<h3>LINK TERKAIT</h3>
-<?php
-$q = $db->select("tb_link");
-foreach($q as $r){
-	echo "<li><a href='".$r['url']."' target='_blank'>".$r['nama_link']."</a></li>";
-}
-?>
-</div>
+		<div class="footer-left">
+			<h3>LINK TERKAIT</h3>
+			<?php
+				$q = $db->select("tb_link");
+				foreach($q as $r){
+					echo "<li><a href='".$r['url']."' target='_blank'>".$r['nama_link']."</a></li>";
+				}
+			?>
+		</div>
 
+		<div class="footer-right">
+			<h3>STATISTIK PENGUNJUNG</h3>
+			<?php include "_counter.php"; ?>
+		</div>
+	</div>
 
-<div class="footer-right">
-<h3>STATISTIK PENGUNJUNG</h3>
-<?php include "_counter.php"; ?>
-</div>
-
-
-</div>
-
-<div class="copyright">
- Copyright&copy;PRODI INFORMATIKA UNTAN
-</div>
-
-
+	<div class="copyright">
+ 		Copyright&copy;PRODI INFORMATIKA UNTAN
+	</div>
 </div>
 
 <div class="bg">
@@ -80,11 +105,25 @@ foreach($q as $r){
 	<div class="modal" id="popup_content"></div>
 	<div class="modal" id="popup_map"></div>
 </div>
-
 </body>
 
+<script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="slick/slick.min.js"></script>
+<script type="text/javascript">
+    $(document).on('ready', function() {
+      $(".regular").slick({
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+				autoplay: true,
+				autoplaySpeed: 2000,
+				fade: true
+      });
+    });
+  </script>
 
-<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+
+<!-- <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script> -->
 <script type="text/javascript" src="js/jquery.validate.min.js"></script>
 <script type="text/javascript" src="js/ajaxupload.3.5.js"></script>
 <script type="text/javascript" src="plugins/lightbox/lightbox.js"></script>
@@ -94,10 +133,6 @@ foreach($q as $r){
 <script type="text/javascript" src="js/markerwithlabel_packed.js"></script>
 <script type="text/javascript" src="js/map.js"></script>
 <?php } ?>
-
-
-
-
 
 <script type="text/javascript">
 $(document).ready(function () {
